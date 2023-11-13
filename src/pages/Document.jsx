@@ -68,7 +68,7 @@ function Document() {
       .catch((error) => {
         console.error("Error deleting document: ", error);
       });
-    toast.info("Are you sure delete  this item");
+    alert("Are you sure delete  this item");
   };
 
   // POST METHOD in the section
