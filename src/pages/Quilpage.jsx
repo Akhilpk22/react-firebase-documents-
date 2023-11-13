@@ -45,7 +45,7 @@ function Quilpage() {
       await updateDoc(docRef, {
         discretion: docBody,
       });
-      alert('Document saved successfully!');
+      console.log('Document saved successfully!');
     } catch (error) {
       console.error('Error updating document body:', error);
     }
