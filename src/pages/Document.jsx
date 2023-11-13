@@ -194,7 +194,7 @@ function Document() {
       <ToastContainer
        style={{width:'700px'}}
         position="top-center"
-        autoClose={1000}
+        autoClose={2500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
