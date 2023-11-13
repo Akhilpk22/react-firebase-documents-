@@ -18,6 +18,10 @@ import {
 import { Col, Row, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// toast import
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Document() {
   // model creatation
   const [show, setShow] = useState(false);
@@ -64,7 +68,7 @@ function Document() {
       .catch((error) => {
         console.error("Error deleting document: ", error);
       });
-    alert("Are you sure delete  this item");
+    toast.info("Are you sure delete  this item");
   };
 
   // POST METHOD in the section
@@ -81,7 +85,7 @@ function Document() {
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
-    alert("successfully added");
+    toast.success("successfully added");
   };
 
   return (
@@ -159,9 +163,19 @@ function Document() {
                     {docsitem.language}
                   </h1>
                 </div>
-                <Link style={{ textDecoration: 'none', color: 'black', fontFamily: '' }} to={`/Quilpage/${docsitem.id}`}>
-  <p className="mt-3 text-start" dangerouslySetInnerHTML={{ __html: docsitem.discretion  }}></p>
-</Link>
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    fontFamily: "",
+                  }}
+                  to={`/Quilpage/${docsitem.id}`}
+                >
+                  <p
+                    className="mt-3 text-start"
+                    dangerouslySetInnerHTML={{ __html: docsitem.discretion }}
+                  ></p>
+                </Link>
 
                 <div className="d-flex  justify-content-center  align-items-center">
                   <Button
@@ -177,6 +191,19 @@ function Document() {
           </Col>
         ))}
       </Row>
+      <ToastContainer
+       style={{width:'700px'}}
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }
